@@ -1,5 +1,5 @@
 # Projet-Mastermind-IN200
-#Laurédcane Coustillas
+#Laurédane Coustillas
 #Hippolyte Lefer
 #Tilly Seassau
 #Alexandre Schoumsky 
