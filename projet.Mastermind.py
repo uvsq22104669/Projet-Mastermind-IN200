@@ -15,14 +15,25 @@ canvas.grid(column=0, row=1)
 def fermer_fenetre():
     racine.destroy()
 
+def mode_2joueurs ():
+    pass
+
+def mode_1joueur ():
+    pass
+
 #création des widgets
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command = fermer_fenetre)
+bouton_2joueurs = tk.Button(racine, text= "2 Joueurs", bg= "grey", command = mode_2joueurs)
+bouton_1joueur = tk.Button(racine, text= "1 Joueur", bg= "grey", command = mode_1joueur)
+
+
+# Position des widgets :
 bouton_quitter.grid(column=1, row=3)
-bouton_2joueurs = tk.Button(racine, text= "2 Joueurs", bg= "grey")
 bouton_2joueurs.grid(column=1, row=0)
-bouton_1joueur = tk.Button(racine, text= "1 Joueur", bg= "grey")
 bouton_1joueur.grid(column=1, row=1)
 
 
-racine. mainloop()
 
+
+
+racine. mainloop()
