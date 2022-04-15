@@ -23,11 +23,17 @@ def mode_2joueurs ():
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
     pass
+def cacher_code():
+    rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "brown", outline="black")
+    return
+
+
 
 #création des widgets
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command = fermer_fenetre)
 bouton_2joueurs = tk.Button(racine, text= "2 Joueurs", bg= "grey", command = mode_2joueurs)
 bouton_1joueur = tk.Button(racine, text= "1 Joueur", bg= "grey", command = mode_1joueur)
+bouton_cacher = tk.Button(racine, text = "Cacher", bg = "white", command = cacher_code)
 
 rectangle10 = canvas.create_rectangle(150,30,350,70, fill = "grey", outline="black")
 rectangle9 = canvas.create_rectangle(150,80,350,120, fill = "grey", outline="black")
@@ -107,12 +113,10 @@ cercle10 = canvas.create_oval(315,35,345,65, fill='white', outline="black")
 
 
 # Position des widgets :
-bouton_quitter.grid(column=1, row=3)
+bouton_quitter.grid(column=1, row=5)
 bouton_2joueurs.grid(column=1, row=0)
 bouton_1joueur.grid(column=1, row=1)
-
-
-
+bouton_cacher.grid (column = 0, row = 4, columnspan=3)
 
 
 racine. mainloop()
