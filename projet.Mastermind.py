@@ -30,17 +30,26 @@ bouton_2joueurs = tk.Button(racine, text= "2 Joueurs", bg= "grey", command = mod
 bouton_1joueur = tk.Button(racine, text= "1 Joueur", bg= "grey", command = mode_1joueur)
 
 
-rectangle10 = canvas.create_rectangle(150,10,350,50, fill = "grey", outline="black")
-rectangle9 = canvas.create_rectangle(150,60,350,100, fill = "grey", outline="black")
-rectangle8 = canvas.create_rectangle(150,110,350,150, fill = "grey", outline="black")
-rectangle7 = canvas.create_rectangle(150,160,350,200, fill = "grey", outline="black")
-rectangle6 = canvas.create_rectangle(150,210,350,250, fill = "grey", outline="black")
-rectangle5 = canvas.create_rectangle(150,260,350,300, fill = "grey", outline="black")
-rectangle4 = canvas.create_rectangle(150,310,350,350, fill = "grey", outline="black")
-rectangle3 = canvas.create_rectangle(150,360,350,400, fill = "grey", outline="black")
-rectangle2 = canvas.create_rectangle(150,410,350,450, fill = "grey", outline="black")
-rectangle1 = canvas.create_rectangle(150,460,350,500, fill = "grey", outline="black")
+rectangle10 = canvas.create_rectangle(150,30,350,70, fill = "grey", outline="black")
+rectangle9 = canvas.create_rectangle(150,80,350,120, fill = "grey", outline="black")
+rectangle8 = canvas.create_rectangle(150,130,350,170, fill = "grey", outline="black")
+rectangle7 = canvas.create_rectangle(150,180,350,220, fill = "grey", outline="black")
+rectangle6 = canvas.create_rectangle(150,230,350,270, fill = "grey", outline="black")
+rectangle5 = canvas.create_rectangle(150,280,350,320, fill = "grey", outline="black")
+rectangle4 = canvas.create_rectangle(150,330,350,370, fill = "grey", outline="black")
+rectangle3 = canvas.create_rectangle(150,380,350,420, fill = "grey", outline="black")
+rectangle2 = canvas.create_rectangle(150,430,350,470, fill = "grey", outline="black")
+rectangle1 = canvas.create_rectangle(150,480,350,520, fill = "grey", outline="black")
 rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "grey", outline="black")
+
+cercle = canvas.create_oval(170,5,185,20, fill='blue', outline="black")
+cercle = canvas.create_oval(190,5,205,20, fill='red', outline="black")
+cercle = canvas.create_oval(210,5,225,20, fill='orange', outline="black")
+cercle = canvas.create_oval(230,5,245,20, fill='yellow', outline="black")
+cercle = canvas.create_oval(250,5,265,20, fill='green', outline="black")
+cercle = canvas.create_oval(270,5,285,20, fill='turquoise', outline="black")
+cercle = canvas.create_oval(290,5,305,20, fill='violet', outline="black")
+cercle = canvas.create_oval(310,5,325,20, fill='pink', outline="black")
 
 
 
