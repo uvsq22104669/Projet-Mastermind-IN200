@@ -13,12 +13,15 @@ canvas.grid(column=0, row=1)
 
 # Fonctions
 def fermer_fenetre():
+    """Fonction qui permet de fermer la fenêtre"""
     racine.destroy()
 
 def mode_2joueurs ():
+    """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 2 joueurs"""
     pass
 
 def mode_1joueur ():
+    """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
     pass
 
 #création des widgets
@@ -34,6 +37,5 @@ bouton_1joueur.grid(column=1, row=1)
 
 
 
-
-
 racine. mainloop()
+
