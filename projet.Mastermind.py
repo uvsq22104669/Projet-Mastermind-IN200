@@ -24,6 +24,7 @@ def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
     pass
 def cacher_code():
+    """Fonction qui permet au joueur qui fait deviner le code de le cacher"""
     rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "brown", outline="black")
     return
 
