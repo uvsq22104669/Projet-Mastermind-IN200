@@ -3,9 +3,7 @@
 # Alexandre SCHOUMSKY
 # Hippolyte LEFER
 # Tilly SEASSAU
-#
-
-
+# https://github.com/uvsq22104669/Projet-Mastermind
 
 
 # Import des librairies
