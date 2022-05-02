@@ -1,3 +1,13 @@
+# Groupe  LDDBI 5
+# Laurédane COUSTILLAS
+# Alexandre SCHOUMSKY
+# Hippolyte LEFER
+# Tilly SEASSAU
+#
+
+
+
+
 # Import des librairies
 import tkinter as tk
 import random as rd
