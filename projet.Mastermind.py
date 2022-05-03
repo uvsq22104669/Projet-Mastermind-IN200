@@ -178,7 +178,7 @@ def mode_1joueur ():
       else: 
         print("You have", BonPlacement, "guesses correct and", BonneCouleur,"good guesses of the colours used")
         #Faut mettre à droite (ou à gauche, là où il y a la place quoi) des petits cercles indicatifs des essais. 
-        #Donc faire apparaître "BonPlacement nombre" de petit cercle vert et "BonneCouleur nombre" de petit cercle jaune et faire en sorte que ces cercles restent fixe lors de la partie
+        #Donc faire apparaître "BonPlacement nombre" de petit cercle rouge et "BonneCouleur nombre" de petit cercle blanc et faire en sorte que ces cercles restent fixe lors de la partie
         
 
     
