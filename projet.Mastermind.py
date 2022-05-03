@@ -25,8 +25,107 @@ def fermer_fenetre():
     racine.destroy()
 
 def mode_2joueurs ():
-    """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 2 joueurs"""
-    pass
+  """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 2 joueurs"""
+  
+  #Creation du code secret par un des joueurs 
+  circle1 = input("What is the colour of circle 1?")
+  circle2 = input("What is the colour of circle 2?")
+  circle3 = input("What is the colour of circle 3?")
+  circle4 = input("What is the colour of circle 4?")
+  #Faire apparaître les couleurs dans le cercle
+  
+  question1 = input("Are you satisfied with your choices? Please answer yes or no")
+  if question1 == "no" : 
+    question2 = int(input("How many circles do you want to change?"))
+    for k in range(question2) :
+      question3 = ("What circle do you want to change? Please answer in the format 'circle x'")
+      if question3 == "circle 1" : 
+        guess1 = input("What colour is circle 1?")
+      elif question3 == "circle 2" : 
+        guess2 = input("What colour is circle 2?")
+      elif question3 == "circle 3" : 
+        guess3 = input("what colour is circle 3?")
+      elif question3 == "circle 4" : 
+        guess4 = input("What colour is circle 4?")
+  #Modifier les cercles necessaires
+  
+  print("Cliquez sur 'Cacher' pour cacher votre code et permettre à votre adversaire de jouer")
+  
+  for i in range(10) :
+    guess1 = input("What colour is circle 1?")
+    guess2 = input("What colour is circle 2?")
+    guess3 = input("What colour is circle 3?")
+    guess4 = input("What colour is circle 4?")
+    #remplir les cercles du i-ème essai avec les couleurs choisies
+  
+  
+    
+    question1 = input("Do you want to change one or more guesses? Please answer yes or no")
+    while question1 == "yes" : 
+      question1_1 = int(input("How many guesses would you like to change?"))
+      for k in range(question1_1) : 
+        question2 = input("What guess would you like to change? Please answer as 'guess x' ")
+        if question2 == "guess 1" : 
+          guess1 = input("What colour is circle 1?")
+        elif question2 == "guess 2" : 
+          guess2 = input("What colour is circle 2?")
+        elif question2 == "guess 3" : 
+          guess3 = input("what colour is circle 3?")
+        elif question2 == "guess 4" : 
+          guess4 = input("What colour is circle 4?")
+      question3 = input("Are you satisfied with your changes? Please answer yes or no")
+      if question3 == "no" :
+        question1 = "yes"
+      else : 
+        break
+    #Idem, mettre les bonnes couleurs
+  
+  
+    BonPlacement = 0
+    BonneCouleur = 0
+    if guess1 == circle1 : 
+      BonPlacement += 1
+    elif guess1 == circle2 :
+      BonneCouleur +=1
+    elif guess1 == circle3 : 
+      BonneCouleur +=1 
+    elif guess1 == circle4 : 
+      BonneCouleur+=1
+  
+    if guess2 == circle2 : 
+      BonPlacement += 1
+    elif guess2 == circle1 :
+      BonneCouleur +=1
+    elif guess2 == circle3 : 
+      BonneCouleur +=1 
+    elif guess2 == circle4 : 
+      BonneCouleur+=1
+  
+    if guess3 == circle3 : 
+      BonPlacement += 1
+    elif guess3 == circle1 :
+      BonneCouleur +=1
+    elif guess3 == circle2 : 
+      BonneCouleur +=1 
+    elif guess3 == circle4 : 
+      BonneCouleur+=1
+  
+    if guess4 == circle4 : 
+      BonPlacement += 1
+    elif guess4 == circle1 :
+      BonneCouleur +=1
+    elif guess4 == circle2 : 
+      BonneCouleur +=1 
+    elif guess4 == circle3 : 
+      BonneCouleur+=1
+  
+    if BonPlacement == 4 : #Condition de fin de partie
+      print("Congrats, you've won!")
+      break 
+    elif i == 9 and BonPlacement != 4 : #Condition de perte 
+      print("Good try, but you've lost, the correcte combination was", circle1, circle2, circle3, circle4 )
+    else: 
+          print("You have", BonPlacement, "guesses correct and", BonneCouleur,"good guesses of the colours used") #Dans ce cas, faire apparaître les cercles rouges et blanc à côté par rapport au nombre de BonPlacement et BonneCouleur
 
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
