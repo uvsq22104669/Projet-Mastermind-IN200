@@ -30,7 +30,158 @@ def mode_2joueurs ():
 
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
-    pass
+    #Creation du code secret 
+    cerclecode_1 = random.randint(0,7)
+    cerclecode_2 = random.randint(0,7)
+    cerclecode_3 = random.randint(0,7)
+    cerclecode_4 = random.randint(0,7)
+
+    #association d'une couleur par nombre 
+    if cerclecode_1 == 0 :
+      cerclecode_1 = "blue"
+    elif cerclecode_1 == 1 : 
+      cerclecode_1 = "red"
+    elif cerclecode_1 == 2 : 
+      cerclecode_1 = "orange"
+    elif cerclecode_1 == 3 : 
+      cerclecode_1 = "yellow"
+    elif cerclecode_1 == 4 : 
+      cerclecode_1 = "green"
+    elif cerclecode_1 == 5 : 
+      cerclecode_1 = "turquoise"
+    elif cerclecode_1 == 6 : 
+      cerclecode_1 = "violet"
+    elif cerclecode_1 == 7 :
+      cerclecode_1 = "pink"
+
+    if cerclecode_2 == 0 :
+      cerclecode_2 = "blue"
+    elif cerclecode_2 == 1 : 
+      cerclecode_2 = "red"
+    elif cerclecode_2 == 2 : 
+      cerclecode_2 = "orange"
+    elif cerclecode_2 == 3 : 
+      cerclecode_2 = "yellow"
+    elif cerclecode_2 == 4 : 
+      cerclecode_2 = "green"
+    elif cerclecode_2 == 5 : 
+      cerclecode_2 = "turquoise"
+    elif cerclecode_2 == 6 : 
+      cerclecode_2 = "violet"
+    elif cerclecode_2 == 7 :
+      cerclecode_2 = "pink"
+
+    if cerclecode_3 == 0 :
+      cerclecode_3 = "blue"
+    elif cerclecode_3 == 1 : 
+      cerclecode_3 = "red"
+    elif cerclecode_3 == 2 : 
+      cerclecode_3 = "orange"
+    elif cerclecode_3 == 3 : 
+      cerclecode_3 = "yellow"
+    elif cerclecode_3 == 4 : 
+      cerclecode_3 = "green"
+    elif cerclecode_3 == 5 : 
+      cerclecode_3 = "turquoise"
+    elif cerclecode_3 == 6 : 
+      cerclecode_3 = "violet"
+    elif cerclecode_3 == 7 :
+      cerclecode_3 = "pink"
+
+    if cerclecode_4 == 0 :
+      cerclecode_4 = "blue"
+    elif cerclecode_4 == 1 : 
+      cerclecode_4 = "red"
+    elif cerclecode_4 == 2 : 
+      cerclecode_4 = "orange"
+    elif cerclecode_4 == 3 : 
+      cerclecode_4 = "yellow"
+    elif cerclecode_4 == 4 : 
+      cerclecode_4 = "green"
+    elif cerclecode_4 == 5 : 
+      cerclecode_4 = "turquoise"
+    elif cerclecode_4 == 6 : 
+      cerclecode_4 = "violet"
+    elif cerclecode_4 == 7 :
+      cerclecode_4 = "pink"
+
+    #print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) #j'avais mis ça pour verifier les valeurs pour jouer 
+
+    #Ce qui manque dans cette fonction c'est le remplissage des cercles au fur et à mesure des essais mais aussi la présence de petits cercles à côté de la rangé des cercles qu'on devinne au fur et à mesure
+    for i in range(10) :
+      guess1 = input("What colour is circle 1?")
+      guess2 = input("What colour is circle 2?") 
+      guess3 = input("What colour is circle 3?")
+      guess4 = input("What colour is circle 4?")
+      #faudrait remplir les cercles de i-ième essai avec les couleurs choisies (en soit ça devrait se faire avec cercle-i (fill = guess1) ) très grossièrement
+
+      question1 = input("Do you want to change one or more guesses? Please answer yes or no")
+      if question1 == "yes" : 
+          question1_1 = int(input("How many guesses would you like to change?"))
+          for k in range(question1_1) : 
+            question2 = input("What guess would you like to change? Please answer as 'guess x' ")
+            if question2 == "guess 1" : 
+                guess1 = input("What colour is circle 1?")
+            elif question2 == "guess 2" : 
+                guess2 = input("What colour is circle 2?")
+            elif question2 == "guess 3" : 
+                guess3 = input("what colour is circle 3?")
+            elif question2 == "guess 4" : 
+                guess4 = input("What colour is circle 4?")
+       #Pareil ici, où faudrait modifier le fill des cercles avec les nouvelles valeurs de guess1, guess2, guess3 et guess4
+
+      BonPlacement = 0
+      BonneCouleur = 0
+      if guess1 == cerclecode_1 : 
+        BonPlacement += 1
+      elif guess1 == cerclecode_2 :
+        BonneCouleur +=1
+      elif guess1 == cerclecode_3 : 
+        BonneCouleur +=1 
+      elif guess1 == cerclecode_4 : 
+        BonneCouleur+=1
+
+      if guess2 == cerclecode_2 : 
+        BonPlacement += 1
+      elif guess2 == cerclecode_1 :
+        BonneCouleur +=1
+      elif guess2 == cerclecode_3 : 
+        BonneCouleur +=1 
+      elif guess2 == cerclecode_4 : 
+        BonneCouleur+=1
+
+      if guess3 == cerclecode_3 : 
+        BonPlacement += 1
+      elif guess3 == cerclecode_1 :
+        BonneCouleur +=1
+      elif guess3 == cerclecode_2 : 
+        BonneCouleur +=1 
+      elif guess3 == cerclecode_4 : 
+        BonneCouleur+=1
+
+      if guess4 == cerclecode_4 : 
+        BonPlacement += 1
+      elif guess4 == cerclecode_1 :
+        BonneCouleur +=1
+      elif guess4 == cerclecode_2 : 
+        BonneCouleur +=1 
+      elif guess4 == cerclecode_3 : 
+        BonneCouleur+=1
+
+      if BonPlacement == 4 : 
+        print("Congrats, you've won!")
+        break
+        
+      elif i == 9 and BonPlacement != 4 : 
+        print("Good try, but you've lost, the correcte combination was", cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4 )
+        #Ici, faudrait faire apparaître les 4 couleurs du code secret
+      else: 
+        print("You have", BonPlacement, "guesses correct and", BonneCouleur,"good guesses of the colours used")
+        #Faut mettre à droite (ou à gauche, là où il y a la place quoi) des petits cercles indicatifs des essais. 
+        #Donc faire apparaître "BonPlacement nombre" de petit cercle vert et "BonneCouleur nombre" de petit cercle jaune et faire en sorte que ces cercles restent fixe lors de la partie
+        
+
+    
 def cacher_code():
     """Fonction qui permet au joueur qui fait deviner le code de le cacher"""
     rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "brown", outline="black")
