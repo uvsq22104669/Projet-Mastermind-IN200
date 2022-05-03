@@ -31,10 +31,10 @@ def mode_2joueurs ():
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
     #Creation du code secret 
-    cerclecode_1 = random.randint(0,7)
-    cerclecode_2 = random.randint(0,7)
-    cerclecode_3 = random.randint(0,7)
-    cerclecode_4 = random.randint(0,7)
+    cerclecode_1 = rd.randint(0,7)
+    cerclecode_2 = rd.randint(0,7)
+    cerclecode_3 = rd.randint(0,7)
+    cerclecode_4 = rd.randint(0,7)
 
     #association d'une couleur par nombre 
     if cerclecode_1 == 0 :
@@ -178,22 +178,27 @@ def mode_1joueur ():
       else: 
         print("You have", BonPlacement, "guesses correct and", BonneCouleur,"good guesses of the colours used")
         #Faut mettre à droite (ou à gauche, là où il y a la place quoi) des petits cercles indicatifs des essais. 
-        #Donc faire apparaître "BonPlacement nombre" de petit cercle rouge et "BonneCouleur nombre" de petit cercle blanc et faire en sorte que ces cercles restent fixe lors de la partie
+        #Donc faire apparaître "BonPlacement nombre" de petit cercle vert et "BonneCouleur nombre" de petit cercle jaune et faire en sorte que ces cercles restent fixe lors de la partie
         
 
     
-def cacher_code():
-    """Fonction qui permet au joueur qui fait deviner le code de le cacher"""
-    rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "brown", outline="black")
-    return
+#def cacher_code():
+    #"""Fonction qui permet au joueur qui fait deviner le code de le cacher"""
+    #rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "brown", outline="black")
+    #return
 
 
+#def decacher_code():
+    #canvas.delete(cacher_code)
+    #return
 
 #création des widgets
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command = fermer_fenetre)
 bouton_2joueurs = tk.Button(racine, text= "2 Joueurs", bg= "grey", command = mode_2joueurs)
 bouton_1joueur = tk.Button(racine, text= "1 Joueur", bg= "grey", command = mode_1joueur)
-bouton_cacher = tk.Button(racine, text = "Cacher", bg = "white", command = cacher_code)
+
+#bouton_cacher = tk.Button(racine, text = "Cacher", bg = "white", command = cacher_code)
+#bouton_decacher = tk.Button(racine, text = "Décacher", bg = "white", command = decacher_code)
 
 rectangle10 = canvas.create_rectangle(150,30,350,70, fill = "grey", outline="black")
 rectangle9 = canvas.create_rectangle(150,80,350,120, fill = "grey", outline="black")
@@ -276,7 +281,9 @@ cercle10 = canvas.create_oval(315,35,345,65, fill='white', outline="black")
 bouton_quitter.grid(column=1, row=5)
 bouton_2joueurs.grid(column=1, row=0)
 bouton_1joueur.grid(column=1, row=1)
-bouton_cacher.grid (column = 0, row = 4, columnspan=3)
+
+#bouton_cacher.grid (column = 0, row = 4, columnspan=3)
+#bouton_decacher.grid (column = 2, row = 5, columnspan=3)
 
 
 racine. mainloop()
