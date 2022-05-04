@@ -27,9 +27,6 @@ def fermer_fenetre():
 def mode_2joueurs ():
   """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 2 joueurs"""
 
-def jeu2():
-
-  
   #Creation du code secret par un des joueurs 
   circle1 = input("What is the colour of circle 1?")
   circle2 = input("What is the colour of circle 2?")
@@ -130,6 +127,7 @@ def jeu2():
 
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
+   
     #Creation du code secret 
     cerclecode_1 = rd.randint(0,7)
     cerclecode_2 = rd.randint(0,7)
@@ -301,16 +299,24 @@ def decacher_code():
 
 #création des widgets
 mode = tk.LabelFrame(racine,text ="Mode de jeu", fg="black", bg= "grey80", highlightcolor="black") 
-mode.grid (row=1, column=1, sticky='e')
+
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command = fermer_fenetre)
 bouton_2joueurs = tk.Button(mode, text= "2 Joueurs", bg= "grey91", command = mode_2joueurs)
 bouton_1joueur = tk.Button(mode, text= "1 Joueur", bg= "grey91", command = mode_1joueur)
-
 bouton_cacher = tk.Button(racine, text = "Cacher", bg = "white", command = cacher_code)
 bouton_decacher = tk.Button(racine, text = "Décacher", bg = "white", command = decacher_code)
 
+# Position des widgets :
+mode.grid (row=1, column=1, sticky='e')
 
-## création cerlce couleur (haut)
+bouton_quitter.grid(column=1, row=5)
+bouton_2joueurs.grid(column=2, row=3, columnspan=2)
+bouton_1joueur.grid(column=2, row=1, columnspan=2)
+bouton_cacher.grid (column = 0, row = 4, columnspan=5, )
+bouton_decacher.grid (column = 0, row = 5, columnspan=5)
+
+
+### création des cerlces de couleur (haut)
 cerclea = canvas.create_oval(170,5,185,20, fill='blue', outline="black")
 cercleb = canvas.create_oval(190,5,205,20, fill='red', outline="black")
 cerclec = canvas.create_oval(210,5,225,20, fill='orange', outline="black")
@@ -320,7 +326,7 @@ cerclef = canvas.create_oval(270,5,285,20, fill='turquoise', outline="black")
 cercleg = canvas.create_oval(290,5,305,20, fill='violet', outline="black")
 cercleh = canvas.create_oval(310,5,325,20, fill='pink', outline="black")
 
-## création  des rectangles
+### création des rectangles
 x0, x1 = 150, 350
 y0= -20
 y1 =20
@@ -331,7 +337,7 @@ for i in range (10):
 
 rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "grey", outline="black")
 
-## création des cercles dans les rectangles
+### création des cercles dans les rectangles
 y0= -15
 y1= 15
 for j in range (1, 11):
@@ -349,7 +355,7 @@ cercle02 = canvas.create_oval(215,565,245,595, fill='white', outline="black")
 cercle03 = canvas.create_oval(265,565,295,595, fill='white', outline="black")
 cercle04 = canvas.create_oval(315,565,345,595, fill='white', outline="black")
 
-## création des cercles pour les points
+### création des cercles pour les points (à gauche)
 y0=-4
 y1= 6
 for j in range (1, 11):
@@ -362,15 +368,5 @@ for j in range (1, 11):
     x1 += 15
     canvas.create_oval(x0,y0,x1,y1, fill="grey", outline="black")
   
-  
 
-# Position des widgets :
-bouton_quitter.grid(column=1, row=5)
-bouton_2joueurs.grid(column=2, row=3, columnspan=2)
-bouton_1joueur.grid(column=2, row=1, columnspan=2)
-
-bouton_cacher.grid (column = 0, row = 4, columnspan=5, )
-bouton_decacher.grid (column = 0, row = 5, columnspan=5)
-
-
-racine. mainloop()
+racine.mainloop()
