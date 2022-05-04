@@ -26,6 +26,9 @@ def fermer_fenetre():
 
 def mode_2joueurs ():
   """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 2 joueurs"""
+
+def jeu2():
+
   
   #Creation du code secret par un des joueurs 
   circle1 = input("What is the colour of circle 1?")
@@ -306,18 +309,8 @@ bouton_1joueur = tk.Button(mode, text= "1 Joueur", bg= "grey91", command = mode_
 bouton_cacher = tk.Button(racine, text = "Cacher", bg = "white", command = cacher_code)
 bouton_decacher = tk.Button(racine, text = "Décacher", bg = "white", command = decacher_code)
 
-rectangle10 = canvas.create_rectangle(150,30,350,70, fill = "grey", outline="black")
-rectangle9 = canvas.create_rectangle(150,80,350,120, fill = "grey", outline="black")
-rectangle8 = canvas.create_rectangle(150,130,350,170, fill = "grey", outline="black")
-rectangle7 = canvas.create_rectangle(150,180,350,220, fill = "grey", outline="black")
-rectangle6 = canvas.create_rectangle(150,230,350,270, fill = "grey", outline="black")
-rectangle5 = canvas.create_rectangle(150,280,350,320, fill = "grey", outline="black")
-rectangle4 = canvas.create_rectangle(150,330,350,370, fill = "grey", outline="black")
-rectangle3 = canvas.create_rectangle(150,380,350,420, fill = "grey", outline="black")
-rectangle2 = canvas.create_rectangle(150,430,350,470, fill = "grey", outline="black")
-rectangle1 = canvas.create_rectangle(150,480,350,520, fill = "grey", outline="black")
-rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "grey", outline="black")
 
+## création cerlce couleur (haut)
 cerclea = canvas.create_oval(170,5,185,20, fill='blue', outline="black")
 cercleb = canvas.create_oval(190,5,205,20, fill='red', outline="black")
 cerclec = canvas.create_oval(210,5,225,20, fill='orange', outline="black")
@@ -327,61 +320,49 @@ cerclef = canvas.create_oval(270,5,285,20, fill='turquoise', outline="black")
 cercleg = canvas.create_oval(290,5,305,20, fill='violet', outline="black")
 cercleh = canvas.create_oval(310,5,325,20, fill='pink', outline="black")
 
+## création  des rectangles
+x0, x1 = 150, 350
+y0= -20
+y1 =20
+for i in range (10):
+  y0 += 50
+  y1 +=50
+  canvas.create_rectangle(x0,y0,x1,y1, fill = "grey", outline="black")
+
+rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "grey", outline="black")
+
+## création des cercles dans les rectangles
+y0= -15
+y1= 15
+for j in range (1, 11):
+  y0 += 50
+  y1 += 50
+  x0=115
+  x1=145
+  for i in range(1, 5):
+    x0 += 50
+    x1 += 50
+    canvas.create_oval(x0,y0,x1,y1, fill="white", outline="black")
+
 cercle01 = canvas.create_oval(165,565,195,595, fill='white', outline="black")
 cercle02 = canvas.create_oval(215,565,245,595, fill='white', outline="black")
 cercle03 = canvas.create_oval(265,565,295,595, fill='white', outline="black")
 cercle04 = canvas.create_oval(315,565,345,595, fill='white', outline="black")
 
-cercle1 = canvas.create_oval(165,485,195,515, fill='white', outline="black")
-cercle1 = canvas.create_oval(215,485,245,515, fill='white', outline="black")
-cercle1 = canvas.create_oval(265,485,295,515, fill='white', outline="black")
-cercle1 = canvas.create_oval(315,485,345,515, fill='white', outline="black")
-
-cercle2 = canvas.create_oval(165,435,195,465, fill='white', outline="black")
-cercle2 = canvas.create_oval(215,435,245,465, fill='white', outline="black")
-cercle2 = canvas.create_oval(265,435,295,465, fill='white', outline="black")
-cercle2 = canvas.create_oval(315,435,345,465, fill='white', outline="black")
-
-cercle3 = canvas.create_oval(165,385,195,415, fill='white', outline="black")
-cercle3 = canvas.create_oval(215,385,245,415, fill='white', outline="black")
-cercle3 = canvas.create_oval(265,385,295,415, fill='white', outline="black")
-cercle3 = canvas.create_oval(315,385,345,415, fill='white', outline="black")
-
-cercle4 = canvas.create_oval(165,335,195,365, fill='white', outline="black")
-cercle4 = canvas.create_oval(215,335,245,365, fill='white', outline="black")
-cercle4 = canvas.create_oval(265,335,295,365, fill='white', outline="black")
-cercle4 = canvas.create_oval(315,335,345,365, fill='white', outline="black")
-
-cercle5 = canvas.create_oval(165,285,195,315, fill='white', outline="black")
-cercle5 = canvas.create_oval(215,285,245,315, fill='white', outline="black")
-cercle5 = canvas.create_oval(265,285,295,315, fill='white', outline="black")
-cercle5 = canvas.create_oval(315,285,345,315, fill='white', outline="black")
-
-cercle6 = canvas.create_oval(165,235,195,265, fill='white', outline="black")
-cercle6 = canvas.create_oval(215,235,245,265, fill='white', outline="black")
-cercle6 = canvas.create_oval(265,235,295,265, fill='white', outline="black")
-cercle6 = canvas.create_oval(315,235,345,265, fill='white', outline="black")
-
-cercle7 = canvas.create_oval(165,185,195,215, fill='white', outline="black")
-cercle7 = canvas.create_oval(215,185,245,215, fill='white', outline="black")
-cercle7 = canvas.create_oval(265,185,295,215, fill='white', outline="black")
-cercle7 = canvas.create_oval(315,185,345,215, fill='white', outline="black")
-
-cercle8 = canvas.create_oval(165,135,195,165, fill='white', outline="black")
-cercle8 = canvas.create_oval(215,135,245,165, fill='white', outline="black")
-cercle8 = canvas.create_oval(265,135,295,165, fill='white', outline="black")
-cercle8 = canvas.create_oval(315,135,345,165, fill='white', outline="black")
-
-cercle9 = canvas.create_oval(165,85,195,115, fill='white', outline="black")
-cercle9 = canvas.create_oval(215,85,245,115, fill='white', outline="black")
-cercle9 = canvas.create_oval(265,85,295,115, fill='white', outline="black")
-cercle9 = canvas.create_oval(315,85,345,115, fill='white', outline="black")
-
-cercle10 = canvas.create_oval(165,35,195,65, fill='white', outline="black")
-cercle10 = canvas.create_oval(215,35,245,65, fill='white', outline="black")
-cercle10 = canvas.create_oval(265,35,295,65, fill='white', outline="black")
-cercle10 = canvas.create_oval(315,35,345,65, fill='white', outline="black")
-
+## création des cercles pour les points
+y0=-4
+y1= 6
+for j in range (1, 11):
+  y0 += 50
+  y1 += 50
+  x0=70
+  x1=80
+  for i in range(1, 5):
+    x0 += 15
+    x1 += 15
+    canvas.create_oval(x0,y0,x1,y1, fill="grey", outline="black")
+  
+  
 
 # Position des widgets :
 bouton_quitter.grid(column=1, row=5)
