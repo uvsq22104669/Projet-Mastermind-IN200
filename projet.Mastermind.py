@@ -26,10 +26,13 @@ def fermer_fenetre():
 def mode_2joueurs ():
   """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 2 joueurs"""
   #Valeurs utilisés plus tard pour le remplissage des  cercles grands et petis
+  #Valeurs utilisés plus tard pour le remplissage des  cercles grands et petis
   y0= -15
   y1= 15
   y0_petit=-4
   y1_petit= 6
+  x0 = 115
+  x1 = 145
   #Creation du code secret par un des joueurs 
   #Cercle code 1
   circle1 = input("What is the colour of circle 1?")
@@ -44,23 +47,22 @@ def mode_2joueurs ():
   circle4 = input("What is the colour of circle 4?")
   canvas.create_oval(315,565,345,595, fill=circle4, outline="black")
 
-  question1 = input("Are you satisfied with your choices? Please answer yes or no")
-  if question1 == "no" : 
-    question2 = int(input("How many circles do you want to change?"))
-    for k in range(question2) :
-      question3 = ("What circle do you want to change? Please answer in the format 'circle x'")
-      if question3 == "circle 1" : 
+  question1 = input("Do you want to change a circle? Please answer yes or no")
+  while question1 == "yes" : 
+      question2 = input("What circle would you like to change? Please answer as 'circle x' ")
+      if question2 == "circle 1" : 
         circle1 = input("What colour is circle 1?")
         canvas.create_oval(165,565,195,595, fill= circle1, outline="black")
-      elif question3 == "circle 2" : 
-        circle2 = input("What colour is circle 2?")
-        canvas.create_oval(215,565,245,595, fill=circle2, outline="black")
-      elif question3 == "circle 3" : 
-        circle3 = input("what colour is circle 3?")
-        canvas.create_oval(265,565,295,595, fill=circle3, outline="black")
-      elif question3 == "circle 4" : 
-        circle4 = input("What colour is circle 4?")
-        canvas.create_oval(315,565,345,595, fill=circle4, outline="black")
+      elif question2 == "circle 2" : 
+          circle2 = input("What colour is circle 2?")
+          canvas.create_oval(215,565,245,595, fill=circle2, outline="black")
+      elif question2 == "circle 3" : 
+            circle3 = input("what colour is circle 3?")
+            canvas.create_oval(265,565,295,595, fill=circle3, outline="black")               
+      elif question2 == "circle 4" : 
+            circle4 = input("What colour is circle 4?")
+            canvas.create_oval(315,565,345,595, fill=circle4, outline="black")
+      question1 = input("Do you want to change one or more circles?")
   
   print("Cliquez sur 'Cacher' pour cacher votre code et permettre à votre adversaire de jouer")
   
@@ -88,46 +90,42 @@ def mode_2joueurs ():
     x1 += 50
     canvas.create_oval(x0,y0,x1,y1, fill= guess4, outline="black")
     
-    
-    question1 = input("Do you want to change one or more guesses? Please answer yes or no")
-    while question1 == "yes" : 
-      question1_1 = int(input("How many guesses would you like to change?"))
-      for k in range(question1_1) : 
-        question2 = input("What guess would you like to change? Please answer as 'guess x' ")
-        if question2 == "guess 1" : 
-          guess1 = input("What colour is circle 1?")
-        elif question2 == "guess 2" : 
-          guess2 = input("What colour is circle 2?")
-          x0
-        elif question2 == "guess 3" : 
-          guess3 = input("what colour is circle 3?")
-        elif question2 == "guess 4" : 
-          guess4 = input("What colour is circle 4?")
-      question3 = input("Are you satisfied with your changes? Please answer yes or no")
-      if question3 == "no" :
-        question1 = "yes"
-      else : 
-        break
-       #Coloration des cercles modifiés
-    
     x0=115
     x1=145
-      #Remplissage premier cercle 
-    x0 += 50
-    x1 += 50
-    canvas.create_oval(x0,y0,x1,y1, fill= guess1, outline="black")
-      #Remplissage deuxième cercle
-    x0 += 50
-    x1 += 50
-    canvas.create_oval(x0,y0,x1,y1, fill= guess2, outline="black")
-      #Remplissage troisième cercle
-    x0 += 50
-    x1 += 50
-    canvas.create_oval(x0,y0,x1,y1, fill= guess3, outline="black")
-      #Remplissage quatrième cercle
-    x0 += 50
-    x1 += 50
-    canvas.create_oval(x0,y0,x1,y1, fill= guess4, outline="black")
+  
+    question1 = input("Do you want to change a guesse? Please answer yes or no")
+    while question1 == "yes" : 
+          question2 = input("What guess would you like to change? Please answer as 'guess x' ")
+          if question2 == "guess 1" : 
+            guess1 = input("What colour is circle 1?")
+            x0 += 50
+            x1 += 50
+            canvas.create_oval(x0,y0,x1,y1, fill= guess1, outline="black")
+            x0 = 115
+            x1 = 145
+          elif question2 == "guess 2" : 
+            guess2 = input("What colour is circle 2?")
+            x0 +=100
+            x1 +=100
+            canvas.create_oval(x0,y0,x1,y1, fill = guess2, outline = "black")
+            x0 = 115
+            x1 = 145
+          elif question2 == "guess 3" : 
+            guess3 = input("what colour is circle 3?")
+            x0 +=150
+            x1 +=150
+            canvas.create_oval(x0,y0,x1,y1, fill = guess3, outline = "black")
+            x0 = 115
+            x1 = 145                
+          elif question2 == "guess 4" : 
+            guess4 = input("What colour is circle 4?")
+            x0 +=200
+            x1 +=200
+            canvas.create_oval(x0,y0,x1,y1, fill = guess4, outline = "black")
+            x0 = 115
+            x1 = 145
+          question1 = input("Do you want to change one or more guesses?")
+    
   
     BonPlacement = 0
     BonneCouleur = 0
@@ -189,8 +187,7 @@ def mode_2joueurs ():
       print("Good try, but you've lost, the correct combination was", circle1, circle2, circle3, circle4 )
     else: 
           print("You have", BonPlacement, "guesses correct and", BonneCouleur,"good guesses of the colours used") 
-          #Dans ce cas, faire apparaître les cercles rouges et blanc à côté par rapport au nombre de BonPlacement et BonneCouleur
-
+            
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
     #Valeurs utilisés plus tard pour le remplissage des gros cercles
