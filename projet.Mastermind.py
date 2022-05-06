@@ -194,6 +194,8 @@ def mode_2joueurs ():
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
     #Valeurs utilisés plus tard pour le remplissage des gros cercles
+    """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
+    #Valeurs utilisés plus tard pour le remplissage des gros cercles
     y0= -15
     y1= 15
     #Valeurs utilisés plus tard pour le remplissage des petits cercles
@@ -276,8 +278,6 @@ def mode_1joueur ():
       cerclecode_4 = "pink"
 
     print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) #j'avais mis ça pour verifier les valeurs pour jouer 
-
-    #Ce qui manque dans cette fonction c'est le remplissage des cercles au fur et à mesure des essais mais aussi la présence de petits cercles à côté de la rangé des cercles qu'on devinne au fur et à mesure
       
     #Creation de listes qu'on va remplir au fur et à mesure pour stocker les informations
     guesses_liste = []
@@ -285,48 +285,63 @@ def mode_1joueur ():
     BonPlacement_liste = []
     
     for i in range(10) :
-      guess1 = input("What colour is circle 1?")
-      guess2 = input("What colour is circle 2?") 
-      guess3 = input("What colour is circle 3?")
-      guess4 = input("What colour is circle 4?")
-      #faudrait remplir les cercles de i-ième essai avec les couleurs choisies (en soit ça devrait se faire avec cercle-i (fill = guess1) ) très grossièremen
-      
-
-      question1 = input("Do you want to change one or more guesses? Please answer yes or no")
-      if question1 == "yes" : 
-          question1_1 = int(input("How many guesses would you like to change?"))
-          for k in range(question1_1) : 
-            question2 = input("What guess would you like to change? Please answer as 'guess x' ")
-            if question2 == "guess 1" : 
-                guess1 = int(input("What colour is circle 1?"))
-            elif question2 == "guess 2" : 
-                guess2 = input("What colour is circle 2?")
-            elif question2 == "guess 3" : 
-                guess3 = input("what colour is circle 3?")
-            elif question2 == "guess 4" : 
-                guess4 = input("What colour is circle 4?")
-      
-      #Coloration du cercle 
+      #Valeurs utilisées pour la creation de cercle
       y0 += 50
       y1 += 50
       x0=115
       x1=145
-      #Remplissage premier cercle 
+      guess1 = input("What colour is circle 1?")
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess1, outline="black")
-      #Remplissage deuxième cercle
+      guess2 = input("What colour is circle 2?")
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess2, outline="black")
-      #Remplissage troisième cercle
+      guess3 = input("What colour is circle 3?")
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess3, outline="black")
-      #Remplissage quatrième cercle
+      guess4 = input("What colour is circle 4?")
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess4, outline="black")
+      
+      x0=115
+      x1=145
+
+      question1 = input("Do you want to change one or more guesses? Please answer yes or no")
+      while question1 == "yes" : 
+          question1_1 = int(input("How many guesses would you like to change?"))
+          for k in range(question1_1) : 
+            question2 = input("What guess would you like to change? Please answer as 'guess x' ")
+            if question2 == "guess 1" : 
+                guess1 = input("What colour is circle 1?")
+                x0 += 50
+                x1 += 50
+                canvas.create_oval(x0,y0,x1,y1, fill= guess1, outline="black")
+                x0 = 115
+                x1 = 145
+            elif question2 == "guess 2" : 
+                guess2 = input("What colour is circle 2?")
+                x0 +=100
+                x1 +=100
+                canvas.create_oval(x0,y0,x1,y1, fill = guess2, outline = "black")
+                x0 = 115
+                x1 = 145
+            elif question2 == "guess 3" : 
+                guess3 = input("what colour is circle 3?")
+                x0 +=150
+                x1 +=150
+                canvas.create_oval(x0,y0,x1,y1, fill = guess3, outline = "black")
+                x0 = 115
+                x1 = 145                
+            elif question2 == "guess 4" : 
+                guess4 = input("What colour is circle 4?")
+                x0 +=200
+                x1 +=200
+                canvas.create_oval(x0,y0,x1,y1, fill = guess4, outline = "black")
+          question1 = input("Do you want to change one or more guesses?")
       
       guesses_liste.append(guess1)
       guesses_liste.append(guess2)
@@ -399,9 +414,6 @@ def mode_1joueur ():
         cercle04(fill = cerclecode_4)
       else: 
         print("You have", BonPlacement, "guesses correct and", BonneCouleur,"good guesses of the colours used")
-        #Faut mettre à droite (ou à gauche, là où il y a la place quoi) des petits cercles indicatifs des essais. 
-        #Donc faire apparaître "BonPlacement nombre" de petit cercle vert et "BonneCouleur nombre" de petit cercle jaune et faire en sorte que ces cercles restent fixe lors de la partie
-        
 
 def cacher_code():
     """Fonction qui permet au joueur qui fait deviner le code de le cacher"""
