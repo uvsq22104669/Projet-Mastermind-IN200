@@ -287,19 +287,22 @@ def mode_1joueur ():
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess1, outline="black")
+      guesses_liste.append(guess1)
       guess2 = input("What colour is circle 2?")
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess2, outline="black")
+      guesses_liste.append(guess2)
       guess3 = input("What colour is circle 3?")
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess3, outline="black")
+      guesses_liste.append(guess3)
       guess4 = input("What colour is circle 4?")
       x0 += 50
       x1 += 50
       canvas.create_oval(x0,y0,x1,y1, fill= guess4, outline="black")
-      
+      guesses_liste.append(guess4)
       x0=115
       x1=145
 
@@ -440,7 +443,7 @@ mode = tk.LabelFrame(racine,text ="Mode de jeu", fg="black", bg= "grey80", highl
 Joueur = tk.LabelFrame(racine, text = "Joueur", fg = "black", bg= "grey80", highlightcolor="black")
 JoueurA = tk.Label(Joueur, text="Joueur A", bg ="cyan")
 JoueurB = tk.Label(Joueur, text="Joueur B", bg ="maroon1")
-
+déco = tk.Label(racine, text= "MASTERMIND", fg = "black", font="Cambria", height ="3")
 # Création des boutons
 
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command = fermer_fenetre)
@@ -453,17 +456,18 @@ bouton_valider = tk.Button(racine, text="Valider", bg = "white", command = valid
 # Position des widgets 
 
 mode.grid (row=1, column=1, sticky='e')
-Joueur.grid(row=0, column=1, sticky='ne')
+Joueur.grid(row=0, column=1, sticky='ew')
 JoueurA.grid(row=0, column= 0)
 JoueurB.grid(row=2, column= 0)
+déco.grid(row= 0, column = 0, columnspan= 3)
 
 # Position des boutons
-bouton_quitter.grid(column=1, row=5)
+bouton_quitter.grid(column=1, row=5, sticky='se')
 bouton_2joueurs.grid(column=2, row=3, columnspan=2)
 bouton_1joueur.grid(column=2, row=1, columnspan=2)
 bouton_cacher.grid(column = 0, row = 4, columnspan=5, )
 bouton_decacher.grid(column = 0, row = 5, columnspan=5)
-bouton_valider.grid(column = 1, row = 2)
+bouton_valider.grid(column = 1, row = 1, sticky='s')
 
 
 ### Création des cerlces de couleur (haut)
@@ -518,5 +522,44 @@ for j in range (1, 11):
     x1 += 15
     canvas.create_oval(x0,y0,x1,y1, fill="grey", outline="black")
   
+
+
+config_cur = None
+def sauvegarde():
+    """Sauvegarde la config courante dans le fichier sauvegarde"""
+    fic = open("sauvegarde", "w")
+    fic.write(str(N)+"\n")
+    for i in range(1, N+1):
+        for j in range(1, N+1):
+            fic.write(str(config_cur[i][j]))
+            fic.write("\n")
+    fic.close()
+bouton_sauvegarder = tk.Button(racine, text="Sauvegarder", bg = "white", command = sauvegarde)
+bouton_sauvegarder.grid(column = 0, row = 1, sticky='sw')
+
+
+def load():
+    """Charge la configuration sauvegardée et la retourne si
+    elle a même valeur N que la config courante, sinon retourne config vide
+    """
+    fic = open("sauvegarde", "r")
+    config = [[0 for i in range(N+2)] for j in range(N+2)]
+    ligne = fic.readline()
+    n = int(ligne)
+    if n != N:
+        fic.close()
+        return config
+    i = j = 1
+    for ligne in fic:
+        config[i][j] = int(ligne)
+        j += 1
+        if j == N + 1:
+            j = 1
+            i += 1
+    fic.close()
+    return config
+
+bouton_recharger = tk.Button(racine, text="Recharger", bg = "white", command = load)
+bouton_recharger.grid(column = 0, row = 4, sticky='sw')
 
 racine.mainloop()
