@@ -421,26 +421,47 @@ def decacher_code():
     canvas.itemconfigure(cercle04, fill="white", outline= "black")
     return
 
-#création des widgets
+def valider ():
+  for i in range(20):
+    if bouton_valider["bg"] == "white":
+        bouton_valider["bg"]="cyan"
+  if bouton_valider["bg"] == "cyan":
+        bouton_valider["bg"]="maroon1"  
+  elif bouton_valider["bg"] == "maroon1":
+        bouton_valider["bg"]="cyan"
+        
+# Création des widgets
 mode = tk.LabelFrame(racine,text ="Mode de jeu", fg="black", bg= "grey80", highlightcolor="black") 
+Joueur = tk.LabelFrame(racine, text = "Joueur", fg = "black", bg= "grey80", highlightcolor="black")
+JoueurA = tk.Label(Joueur, text="Joueur A", bg ="cyan")
+JoueurB = tk.Label(Joueur, text="Joueur B", bg ="maroon1")
+
+# Création des boutons
 
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command = fermer_fenetre)
 bouton_2joueurs = tk.Button(mode, text= "2 Joueurs", bg= "grey91", command = mode_2joueurs)
 bouton_1joueur = tk.Button(mode, text= "1 Joueur", bg= "grey91", command = mode_1joueur)
 bouton_cacher = tk.Button(racine, text = "Cacher", bg = "white", command = cacher_code)
 bouton_decacher = tk.Button(racine, text = "Décacher", bg = "white", command = decacher_code)
+bouton_valider = tk.Button(racine, text="Valider", bg = "white", command = valider)
 
-# Position des widgets :
+# Position des widgets 
+
 mode.grid (row=1, column=1, sticky='e')
+Joueur.grid(row=0, column=1, sticky='ne')
+JoueurA.grid(row=0, column= 0)
+JoueurB.grid(row=2, column= 0)
 
+# Position des boutons
 bouton_quitter.grid(column=1, row=5)
 bouton_2joueurs.grid(column=2, row=3, columnspan=2)
 bouton_1joueur.grid(column=2, row=1, columnspan=2)
-bouton_cacher.grid (column = 0, row = 4, columnspan=5, )
-bouton_decacher.grid (column = 0, row = 5, columnspan=5)
+bouton_cacher.grid(column = 0, row = 4, columnspan=5, )
+bouton_decacher.grid(column = 0, row = 5, columnspan=5)
+bouton_valider.grid(column = 1, row = 2)
 
 
-### création des cerlces de couleur (haut)
+### Création des cerlces de couleur (haut)
 cerclea = canvas.create_oval(170,5,185,20, fill='blue', outline="black")
 cercleb = canvas.create_oval(190,5,205,20, fill='red', outline="black")
 cerclec = canvas.create_oval(210,5,225,20, fill='orange', outline="black")
@@ -450,7 +471,7 @@ cerclef = canvas.create_oval(270,5,285,20, fill='turquoise', outline="black")
 cercleg = canvas.create_oval(290,5,305,20, fill='violet', outline="black")
 cercleh = canvas.create_oval(310,5,325,20, fill='pink', outline="black")
 
-### création des rectangles
+### Création des rectangles
 x0, x1 = 150, 350
 y0= -20
 y1 =20
@@ -461,7 +482,7 @@ for i in range (10):
 
 rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "grey", outline="black")
 
-### création des cercles dans les rectangles
+### Création des cercles dans les rectangles
 y0= -15
 y1= 15
 for j in range (1, 11):
