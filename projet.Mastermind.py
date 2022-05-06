@@ -26,7 +26,6 @@ def fermer_fenetre():
 def mode_2joueurs ():
   """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 2 joueurs"""
   #Valeurs utilisés plus tard pour le remplissage des  cercles grands et petis
-  #Valeurs utilisés plus tard pour le remplissage des  cercles grands et petis
   y0= -15
   y1= 15
   y0_petit=-4
@@ -126,7 +125,6 @@ def mode_2joueurs ():
             x1 = 145
           question1 = input("Do you want to change one or more guesses?")
     
-  
     BonPlacement = 0
     BonneCouleur = 0
     if guess1 == circle1 : 
@@ -191,8 +189,6 @@ def mode_2joueurs ():
 def mode_1joueur ():
     """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
     #Valeurs utilisés plus tard pour le remplissage des gros cercles
-    """Fonction qui permet de jouer au Mastermind avec un mode de jeu de 1 seul joueur"""
-    #Valeurs utilisés plus tard pour le remplissage des gros cercles
     y0= -15
     y1= 15
     #Valeurs utilisés plus tard pour le remplissage des petits cercles
@@ -215,7 +211,7 @@ def mode_1joueur ():
     elif cerclecode_1 == 3 : 
       cerclecode_1 = "yellow"
     elif cerclecode_1 == 4 : 
-      cerclecode_1 = "green"
+      cerclecode_1 = "green2"
     elif cerclecode_1 == 5 : 
       cerclecode_1 = "turquoise"
     elif cerclecode_1 == 6 : 
@@ -232,7 +228,7 @@ def mode_1joueur ():
     elif cerclecode_2 == 3 : 
       cerclecode_2 = "yellow"
     elif cerclecode_2 == 4 : 
-      cerclecode_2 = "green"
+      cerclecode_2 = "green2"
     elif cerclecode_2 == 5 : 
       cerclecode_2 = "turquoise"
     elif cerclecode_2 == 6 : 
@@ -249,7 +245,7 @@ def mode_1joueur ():
     elif cerclecode_3 == 3 : 
       cerclecode_3 = "yellow"
     elif cerclecode_3 == 4 : 
-      cerclecode_3 = "green"
+      cerclecode_3 = "green2"
     elif cerclecode_3 == 5 : 
       cerclecode_3 = "turquoise"
     elif cerclecode_3 == 6 : 
@@ -266,7 +262,7 @@ def mode_1joueur ():
     elif cerclecode_4 == 3 : 
       cerclecode_4 = "yellow"
     elif cerclecode_4 == 4 : 
-      cerclecode_4 = "green"
+      cerclecode_4 = "green2"
     elif cerclecode_4 == 5 : 
       cerclecode_4 = "turquoise"
     elif cerclecode_4 == 6 : 
@@ -274,7 +270,7 @@ def mode_1joueur ():
     elif cerclecode_4 == 7 :
       cerclecode_4 = "pink"
 
-    print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) #j'avais mis ça pour verifier les valeurs pour jouer 
+    print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) # Pour vérifier si cela fonctionne 
       
     #Creation de listes qu'on va remplir au fur et à mesure pour stocker les informations
     guesses_liste = []
