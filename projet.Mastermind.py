@@ -6,7 +6,7 @@
 # https://github.com/uvsq22104669/Projet-Mastermind
 
 
-# Import des librairies
+### Import des librairies
 import tkinter as tk
 import random as rd
 
