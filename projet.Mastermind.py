@@ -175,7 +175,7 @@ def mode_2joueurs ():
     for z in range(BonneCouleur) : 
       x0 +=15 
       x1 += 15
-      canvas.create_oval(x0,y0_petit, x1, y1_petit, fill = "white",outline="black")
+      canvas.create_oval(x0,y0_petit, x1, y1_petit, fill="white",outline="black")
   
     if BonPlacement == 4 : #Condition de fin de partie
       print("Congrats, you've won!")
@@ -200,6 +200,7 @@ def mode_1joueur ():
     cerclecode_2 = rd.randint(0,7)
     cerclecode_3 = rd.randint(0,7)
     cerclecode_4 = rd.randint(0,7)
+    
 
     #association d'une couleur par nombre 
     if cerclecode_1 == 0 :
@@ -269,6 +270,11 @@ def mode_1joueur ():
       cerclecode_4 = "violet"
     elif cerclecode_4 == 7 :
       cerclecode_4 = "pink"
+
+    canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
+    canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
+    canvas.create_oval(265,565,295,595, fill= cerclecode_3, outline="black")
+    canvas.create_oval(315,565,345,595, fill= cerclecode_4, outline="black")
 
     print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) # Pour vérifier si cela fonctionne 
       
@@ -395,7 +401,7 @@ def mode_1joueur ():
       for z in range(BonneCouleur) : 
         x0 +=15 
         x1 += 15
-        canvas.create_oval(x0,y0_petit, x1, y1_petit, fill = "white",outline="black")
+        canvas.create_oval(x0,y0_petit, x1, y1_petit, fill ="white",outline="black")
       
 
       if BonPlacement == 4 : 
@@ -414,19 +420,19 @@ def mode_1joueur ():
 def cacher_code():
     """Fonction qui permet au joueur qui fait deviner le code de le cacher"""
     canvas.itemconfigure(rectangle0, fill = "brown", outline="black")
-    canvas.itemconfigure(cercle01, fill="brown", outline= "brown")
-    canvas.itemconfigure(cercle02, fill="brown", outline= "brown")
-    canvas.itemconfigure(cercle03, fill="brown", outline= "brown")
-    canvas.itemconfigure(cercle04, fill="brown", outline= "brown")
+    canvas.itemconfigure(cercle01, fill="brown", outline="brown")
+    canvas.itemconfigure(cercle02, fill="brown", outline="brown")
+    canvas.itemconfigure(cercle03, fill="brown", outline="brown")
+    canvas.itemconfigure(cercle04, fill="brown", outline="brown")
     return
 
 
 def decacher_code():
     canvas.itemconfigure(rectangle0, fill='grey')
-    canvas.itemconfigure(cercle01, fill="white", outline= "black")
-    canvas.itemconfigure(cercle02, fill="white", outline= "black")
-    canvas.itemconfigure(cercle03, fill="white", outline= "black")
-    canvas.itemconfigure(cercle04, fill="white", outline= "black")
+    canvas.itemconfigure(cercle01, fill="white", outline="black")
+    canvas.itemconfigure(cercle02, fill="white", outline="black")
+    canvas.itemconfigure(cercle03, fill="white", outline="black")
+    canvas.itemconfigure(cercle04, fill="white", outline="black")
     return
 
 def valider ():
@@ -439,35 +445,35 @@ def valider ():
         bouton_valider["bg"]="cyan"
         
 # Création des widgets
-mode = tk.LabelFrame(racine,text ="Mode de jeu", fg="black", bg= "grey80", highlightcolor="black") 
-Joueur = tk.LabelFrame(racine, text = "Joueur", fg = "black", bg= "grey80", highlightcolor="black")
-JoueurA = tk.Label(Joueur, text="Joueur A", bg ="cyan")
-JoueurB = tk.Label(Joueur, text="Joueur B", bg ="maroon1")
-déco = tk.Label(racine, text= "MASTERMIND", fg = "black", font="Cambria", height ="3")
+mode = tk.LabelFrame(racine,text ="Mode de jeu", fg="black", bg="grey80", highlightcolor="black") 
+Joueur = tk.LabelFrame(racine, text="Joueur", fg="black", bg="grey80", highlightcolor="black")
+JoueurA = tk.Label(Joueur, text="Joueur A", bg="cyan")
+JoueurB = tk.Label(Joueur, text="Joueur B", bg="maroon1")
+déco = tk.Label(racine, text="MASTERMIND", fg="black", font="Cambria", height="3")
 # Création des boutons
 
-bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command = fermer_fenetre)
-bouton_2joueurs = tk.Button(mode, text= "2 Joueurs", bg= "grey91", command = mode_2joueurs)
-bouton_1joueur = tk.Button(mode, text= "1 Joueur", bg= "grey91", command = mode_1joueur)
-bouton_cacher = tk.Button(racine, text = "Cacher", bg = "white", command = cacher_code)
-bouton_decacher = tk.Button(racine, text = "Décacher", bg = "white", command = decacher_code)
-bouton_valider = tk.Button(racine, text="Valider", bg = "white", command = valider)
+bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command= fermer_fenetre)
+bouton_2joueurs = tk.Button(mode, text="2 Joueurs", bg="grey91", command= mode_2joueurs)
+bouton_1joueur = tk.Button(mode, text="1 Joueur", bg="grey91", command= mode_1joueur)
+bouton_cacher = tk.Button(racine, text="Cacher", bg="white", command= cacher_code)
+bouton_decacher = tk.Button(racine, text ="Décacher", bg="white", command= decacher_code)
+bouton_valider = tk.Button(racine, text="Valider", bg= "white", command= valider)
 
 # Position des widgets 
 
 mode.grid (row=1, column=1, sticky='e')
 Joueur.grid(row=0, column=1, sticky='ew')
-JoueurA.grid(row=0, column= 0)
-JoueurB.grid(row=2, column= 0)
-déco.grid(row= 0, column = 0, columnspan= 3)
+JoueurA.grid(row=0, column=0)
+JoueurB.grid(row=2, column=0)
+déco.grid(row=0, column=0, columnspan=3)
 
 # Position des boutons
 bouton_quitter.grid(column=1, row=5, sticky='se')
 bouton_2joueurs.grid(column=2, row=3, columnspan=2)
 bouton_1joueur.grid(column=2, row=1, columnspan=2)
-bouton_cacher.grid(column = 0, row = 4, columnspan=5, )
-bouton_decacher.grid(column = 0, row = 5, columnspan=5)
-bouton_valider.grid(column = 1, row = 1, sticky='s')
+bouton_cacher.grid(column=0, row=4, columnspan=5, )
+bouton_decacher.grid(column=0, row=5, columnspan=5)
+bouton_valider.grid(column=1, row=1, sticky='s')
 
 
 ### Création des cerlces de couleur (haut)
@@ -482,23 +488,23 @@ cercleh = canvas.create_oval(310,5,325,20, fill='pink', outline="black")
 
 ### Création des rectangles
 x0, x1 = 150, 350
-y0= -20
-y1 =20
+y0 = -20
+y1 = 20
 for i in range (10):
   y0 += 50
-  y1 +=50
+  y1 += 50
   canvas.create_rectangle(x0,y0,x1,y1, fill = "grey", outline="black")
 
 rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "grey", outline="black")
 
 ### Création des cercles dans les rectangles
-y0= -15
-y1= 15
+y0 = -15
+y1 = 15
 for j in range (1, 11):
   y0 += 50
   y1 += 50
-  x0=115
-  x1=145
+  x0 = 115
+  x1 = 145
   for i in range(1, 5):
     x0 += 50
     x1 += 50
@@ -523,7 +529,7 @@ for j in range (1, 11):
     canvas.create_oval(x0,y0,x1,y1, fill="grey", outline="black")
   
 
-
+N=100
 config_cur = None
 def sauvegarde():
     """Sauvegarde la config courante dans le fichier sauvegarde"""
