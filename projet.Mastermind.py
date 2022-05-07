@@ -33,6 +33,7 @@ def mode_2joueurs ():
   x0 = 115
   x1 = 145
   #Creation du code secret par un des joueurs 
+  global circle1, circle2, circle3, circle4
   #Cercle code 1
   circle1 = input("What is the colour of circle 1?")
   canvas.create_oval(165,565,195,595, fill= circle1, outline="black")
@@ -419,20 +420,20 @@ def mode_1joueur ():
 
 def cacher_code():
     """Fonction qui permet au joueur qui fait deviner le code de le cacher"""
-    canvas.itemconfigure(rectangle0, fill = "brown", outline="black")
-    canvas.itemconfigure(cercle01, fill="brown", outline="brown")
-    canvas.itemconfigure(cercle02, fill="brown", outline="brown")
-    canvas.itemconfigure(cercle03, fill="brown", outline="brown")
-    canvas.itemconfigure(cercle04, fill="brown", outline="brown")
+    canvas.itemconfigure(rectangle0, fill = "brown")
+    canvas.create_oval(165,565,195,595, fill='brown', outline="brown")
+    canvas.create_oval(215,565,245,595, fill='brown', outline="brown")
+    canvas.create_oval(265,565,295,595, fill='brown', outline="brown")
+    canvas.create_oval(315,565,345,595, fill='brown', outline="brown")
     return
 
 
 def decacher_code():
     canvas.itemconfigure(rectangle0, fill='grey')
-    canvas.itemconfigure(cercle01, fill="white", outline="black")
-    canvas.itemconfigure(cercle02, fill="white", outline="black")
-    canvas.itemconfigure(cercle03, fill="white", outline="black")
-    canvas.itemconfigure(cercle04, fill="white", outline="black")
+    canvas.create_oval(165,565,195,595, fill= circle1, outline="black")
+    canvas.create_oval(215,565,245,595, fill=circle2, outline="black")
+    canvas.create_oval(265,565,295,595, fill=circle3, outline="black")
+    canvas.create_oval(315,565,345,595, fill=circle4, outline="black")
     return
 
 def valider ():
