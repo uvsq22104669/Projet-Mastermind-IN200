@@ -6,7 +6,7 @@
 # https://github.com/uvsq22104669/Projet-Mastermind
 
 
-### Import des librairies
+# Import des librairies
 import tkinter as tk
 import random as rd
 
@@ -272,10 +272,7 @@ def mode_1joueur ():
     elif cerclecode_4 == 7 :
       cerclecode_4 = "pink"
 
-    canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
-    canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
-    canvas.create_oval(265,565,295,595, fill= cerclecode_3, outline="black")
-    canvas.create_oval(315,565,345,595, fill= cerclecode_4, outline="black")
+    
 
     print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) # Pour vérifier si cela fonctionne 
       
@@ -407,7 +404,12 @@ def mode_1joueur ():
 
       if BonPlacement == 4 : 
         print("Congrats, you've won!")
+        canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
+        canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
+        canvas.create_oval(265,565,295,595, fill= cerclecode_3, outline="black")
+        canvas.create_oval(315,565,345,595, fill= cerclecode_4, outline="black")
         break
+
         
       elif i == 9 and BonPlacement != 4 : 
         print("Good try, but you've lost, the correcte combination was", cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4 )
@@ -415,9 +417,14 @@ def mode_1joueur ():
         cercle02(fill = cerclecode_2)
         cercle03(fill = cerclecode_3)
         cercle04(fill = cerclecode_4)
+        canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
+        canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
+        canvas.create_oval(265,565,295,595, fill= cerclecode_3, outline="black")
+        canvas.create_oval(315,565,345,595, fill= cerclecode_4, outline="black")
+
       else: 
         print("You have", BonPlacement, "guesses correct and", BonneCouleur,"good guesses of the colours used")
-
+       
 def cacher_code():
     """Fonction qui permet au joueur qui fait deviner le code de le cacher"""
     canvas.itemconfigure(rectangle0, fill = "brown")
