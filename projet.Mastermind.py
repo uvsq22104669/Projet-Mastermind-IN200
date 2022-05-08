@@ -6,19 +6,21 @@
 # https://github.com/uvsq22104669/Projet-Mastermind
 
 
-# Import des librairies
+#### Import des librairies
 import tkinter as tk
 import random as rd
 
+#### Boucle principale
 racine = tk.Tk()
 racine.title("Mastermind")
 
-# Définition des constantes
+#### Définition des constantes
 CANVAS_WIDTH, CANVAS_HEIGHT = 400, 600
 
 canvas = tk.Canvas(racine, width = CANVAS_WIDTH, height = CANVAS_HEIGHT)
 canvas.grid(column=0, row=1)
-# Fonctions
+
+#### Fonctions
 def fermer_fenetre():
     """Fonction qui permet de fermer la fenêtre"""
     racine.destroy()
@@ -202,7 +204,6 @@ def mode_1joueur ():
     cerclecode_3 = rd.randint(0,7)
     cerclecode_4 = rd.randint(0,7)
     
-
     #association d'une couleur par nombre 
     if cerclecode_1 == 0 :
       cerclecode_1 = "blue"
@@ -271,8 +272,6 @@ def mode_1joueur ():
       cerclecode_4 = "violet"
     elif cerclecode_4 == 7 :
       cerclecode_4 = "pink"
-
-    
 
     print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) # Pour vérifier si cela fonctionne 
       
@@ -436,6 +435,7 @@ def cacher_code():
 
 
 def decacher_code():
+    """Fonction qui permet au joueur A de décacher le code"""
     canvas.itemconfigure(rectangle0, fill='grey')
     canvas.create_oval(165,565,195,595, fill= circle1, outline="black")
     canvas.create_oval(215,565,245,595, fill=circle2, outline="black")
@@ -444,6 +444,8 @@ def decacher_code():
     return
 
 def valider ():
+  """ Fonction qui permet de savoir à quel joueur c'est le tour de jouer: dès qu'un joueur a fini de jouer, le bouton
+  change de couleur et détermine si c'est au joueur A ou B de jouer en fonction de la couleur"""
   for i in range(20):
     if bouton_valider["bg"] == "white":
         bouton_valider["bg"]="cyan"
@@ -451,40 +453,56 @@ def valider ():
         bouton_valider["bg"]="maroon1"  
   elif bouton_valider["bg"] == "maroon1":
         bouton_valider["bg"]="cyan"
+
+def sauvegarde():
+    """Sauvegarde la partie en cours dans un fichier sauvegarde.txt"""
+    fic = open ("sauvegarde.txt", "w")
+    fic.write ()
+    pass
+    fic.close()
+
+
+def recharger():
+    """Recharge le fichier sauvegarder pour continuer la partie en cours"""
+    fic = open ("sauvegarde.txt", "r")
+    pass
+    canvas.delete()
         
-# Création des widgets
+#### Création des widgets
 mode = tk.LabelFrame(racine,text ="Mode de jeu", fg="black", bg="grey80", highlightcolor="black") 
 Joueur = tk.LabelFrame(racine, text="Joueur", fg="black", bg="grey80", highlightcolor="black")
 JoueurA = tk.Label(Joueur, text="Joueur A", bg="cyan")
 JoueurB = tk.Label(Joueur, text="Joueur B", bg="maroon1")
 déco = tk.Label(racine, text="MASTERMIND", fg="black", font="Cambria", height="3")
-# Création des boutons
 
+#### Création des boutons
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command= fermer_fenetre)
 bouton_2joueurs = tk.Button(mode, text="2 Joueurs", bg="grey91", command= mode_2joueurs)
 bouton_1joueur = tk.Button(mode, text="1 Joueur", bg="grey91", command= mode_1joueur)
 bouton_cacher = tk.Button(racine, text="Cacher", bg="white", command= cacher_code)
 bouton_decacher = tk.Button(racine, text ="Décacher", bg="white", command= decacher_code)
 bouton_valider = tk.Button(racine, text="Valider", bg= "white", command= valider)
+bouton_sauvegarder = tk.Button(racine, text="Sauvegarder", bg = "white", command = sauvegarde)
+bouton_recharger = tk.Button(racine, text="Recharger", bg = "white", command = recharger)
 
-# Position des widgets 
-
+#### Position des widgets 
 mode.grid (row=1, column=1, sticky='e')
 Joueur.grid(row=0, column=1, sticky='ew')
 JoueurA.grid(row=0, column=0)
 JoueurB.grid(row=2, column=0)
 déco.grid(row=0, column=0, columnspan=3)
 
-# Position des boutons
+#### Position des boutons
 bouton_quitter.grid(column=1, row=5, sticky='se')
 bouton_2joueurs.grid(column=2, row=3, columnspan=2)
 bouton_1joueur.grid(column=2, row=1, columnspan=2)
 bouton_cacher.grid(column=0, row=4, columnspan=5, )
 bouton_decacher.grid(column=0, row=5, columnspan=5)
 bouton_valider.grid(column=1, row=1, sticky='s')
+bouton_sauvegarder.grid(column = 0, row = 1, sticky='sw')
+bouton_recharger.grid(column = 0, row = 4, sticky='sw')
 
-
-### Création des cerlces de couleur (haut)
+#### Création des cerlces de couleur (haut)
 cerclea = canvas.create_oval(170,5,185,20, fill='blue', outline="black")
 cercleb = canvas.create_oval(190,5,205,20, fill='red', outline="black")
 cerclec = canvas.create_oval(210,5,225,20, fill='orange', outline="black")
@@ -494,7 +512,7 @@ cerclef = canvas.create_oval(270,5,285,20, fill='turquoise', outline="black")
 cercleg = canvas.create_oval(290,5,305,20, fill='violet', outline="black")
 cercleh = canvas.create_oval(310,5,325,20, fill='pink', outline="black")
 
-### Création des rectangles
+#### Création des rectangles
 x0, x1 = 150, 350
 y0 = -20
 y1 = 20
@@ -505,7 +523,7 @@ for i in range (10):
 
 rectangle0 = canvas.create_rectangle(150,560,350,600, fill = "grey", outline="black")
 
-### Création des cercles dans les rectangles
+#### Création des cercles dans les rectangles
 y0 = -15
 y1 = 15
 for j in range (1, 11):
@@ -523,7 +541,7 @@ cercle02 = canvas.create_oval(215,565,245,595, fill='white', outline="black")
 cercle03 = canvas.create_oval(265,565,295,595, fill='white', outline="black")
 cercle04 = canvas.create_oval(315,565,345,595, fill='white', outline="black")
 
-### création des cercles pour les points (à gauche)
+#### Création des cercles pour les points (à gauche)
 y0=-4
 y1= 6
 for j in range (1, 11):
@@ -536,44 +554,5 @@ for j in range (1, 11):
     x1 += 15
     canvas.create_oval(x0,y0,x1,y1, fill="grey", outline="black")
   
-
-N=100
-config_cur = None
-def sauvegarde():
-    """Sauvegarde la config courante dans le fichier sauvegarde"""
-    fic = open("sauvegarde", "w")
-    fic.write(str(N)+"\n")
-    for i in range(1, N+1):
-        for j in range(1, N+1):
-            fic.write(str(config_cur[i][j]))
-            fic.write("\n")
-    fic.close()
-bouton_sauvegarder = tk.Button(racine, text="Sauvegarder", bg = "white", command = sauvegarde)
-bouton_sauvegarder.grid(column = 0, row = 1, sticky='sw')
-
-
-def load():
-    """Charge la configuration sauvegardée et la retourne si
-    elle a même valeur N que la config courante, sinon retourne config vide
-    """
-    fic = open("sauvegarde", "r")
-    config = [[0 for i in range(N+2)] for j in range(N+2)]
-    ligne = fic.readline()
-    n = int(ligne)
-    if n != N:
-        fic.close()
-        return config
-    i = j = 1
-    for ligne in fic:
-        config[i][j] = int(ligne)
-        j += 1
-        if j == N + 1:
-            j = 1
-            i += 1
-    fic.close()
-    return config
-
-bouton_recharger = tk.Button(racine, text="Recharger", bg = "white", command = load)
-bouton_recharger.grid(column = 0, row = 4, sticky='sw')
-
+    
 racine.mainloop()
