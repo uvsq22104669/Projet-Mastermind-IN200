@@ -221,14 +221,16 @@ def mode_2joueurs ():
         canvas.create_oval(x0_petit,y0_petit, x1_petit, y1_petit, fill ="white",outline="black")
       
       if BonPlacement == 4 : 
+        lbl.config(text = "Congrats, you've won!")
         print("Congrats, you've won!")
         canvas.create_oval(165,565,195,595, fill= circlecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= circlecode_2, outline="black")
         canvas.create_oval(265,565,295,595, fill= circlecode_3, outline="black")
         canvas.create_oval(315,565,345,595, fill= circlecode_4, outline="black")
         
-      elif i == 9 and BonPlacement != 4 : 
-        print("Good try, but you've lost, the correcte combination was", circlecode_1, circlecode_2, circlecode_3, circlecode_4 )
+      elif i == 9 and BonPlacement != 4 :
+        lbl.config(text = "Good try, but you're out of guesses)
+        print("Good try, but you've lost", circlecode_1, circlecode_2, circlecode_3, circlecode_4 )
         canvas.create_oval(165,565,195,595, fill= circlecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= circlecode_2, outline="black")
         canvas.create_oval(265,565,295,595, fill= circlecode_3, outline="black")
@@ -353,6 +355,7 @@ def mode_1joueur ():
         canvas.create_oval(x0_petit,y0_petit, x1_petit, y1_petit, fill ="white",outline="black")
       
       if BonPlacement == 4 : 
+        lbl.config(tetx = "Congrats, you've won!")
         print("Congrats, you've won!")
         canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
@@ -360,6 +363,7 @@ def mode_1joueur ():
         canvas.create_oval(315,565,345,595, fill= cerclecode_4, outline="black")
         
       elif i == 9 and BonPlacement != 4 : 
+        lbl.config(text = "Good try, but you've lost")
         print("Good try, but you've lost, the correcte combination was", cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4 )
         canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
