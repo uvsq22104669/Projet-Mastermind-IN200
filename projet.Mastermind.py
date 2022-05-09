@@ -25,7 +25,7 @@ guesses_liste = []
 GuessListe = []
 GuessInfo = []
 GuessInfo_liste = []
-color_list = ["blue","red", "orange", "yellow", "green", "turquoise", "violet", "pink"]
+color_list = ["blue","red", "orange", "yellow", "green2", "turquoise", "violet", "pink"]
 
 #### Fonctions
 def fermer_fenetre():
@@ -439,7 +439,8 @@ bouton_decacher = tk.Button(racine, text ="Décacher", bg="white", command= deca
 bouton_valider = tk.Button(racine, text="Valider", bg= "white", command= valider)
 bouton_sauvegarder = tk.Button(racine, text="Sauvegarder", bg = "white", command = sauvegarde)
 bouton_recharger = tk.Button(racine, text="Recharger", bg = "white", command = recharger)
-                   
+bouton_ok = tk.Button(racine, text="OK", bg= "white", command=ok)
+
 
 #### Position des widgets 
 mode.grid (row=1, column=1, sticky='e')
