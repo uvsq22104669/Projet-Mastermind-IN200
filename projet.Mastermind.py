@@ -226,7 +226,7 @@ def mode_2joueurs ():
         canvas.create_oval(315,565,345,595, fill= circlecode_4, outline="black")
         
       elif i == 9 and BonPlacement != 4 :
-        lbl.config(text = "Good try, but you're out of guesses)
+        lbl.config(text = "Good try, but you're out of guesses")
         print("Good try, but you've lost", circlecode_1, circlecode_2, circlecode_3, circlecode_4 )
         canvas.create_oval(165,565,195,595, fill= circlecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= circlecode_2, outline="black")
@@ -413,6 +413,11 @@ def recharger():
     fic = open ("sauvegarde.txt", "r")
     pass
     canvas.delete()
+inp = tk.StringVar()
+
+def ok():
+  global inp
+  inp.set(inputtxt.get(1.0, "end-1c"))
                    
 #Creation du Text Box
 inputtxt = tk.Text(racine,height = 1, width = 15, bg = "white", fg = "black")
