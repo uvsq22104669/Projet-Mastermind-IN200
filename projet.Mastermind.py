@@ -361,10 +361,6 @@ def mode_1joueur ():
         
       elif i == 9 and BonPlacement != 4 : 
         print("Good try, but you've lost, the correcte combination was", cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4 )
-        cercle01(fill = cerclecode_1)
-        cercle02(fill = cerclecode_2)
-        cercle03(fill = cerclecode_3)
-        cercle04(fill = cerclecode_4)
         canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
         canvas.create_oval(265,565,295,595, fill= cerclecode_3, outline="black")
