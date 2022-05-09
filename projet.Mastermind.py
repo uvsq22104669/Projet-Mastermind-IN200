@@ -49,9 +49,6 @@ def mode_2joueurs ():
   #global GuessInfo_liste
   global inp
   
-  #Creation du code secret par un des joueurs 
-  global circle1, circle2, circle3, circle4
-  
   #Cercle code 1
   lbl.config(text = "What is the colour of circle 1?")
   racine.wait_variable(inp)
@@ -416,14 +413,18 @@ def recharger():
     fic = open ("sauvegarde.txt", "r")
     pass
     canvas.delete()
-        
+                   
+#Creation du Text Box
+inputtxt = tk.Text(racine,height = 1, width = 15, bg = "white", fg = "black")
+                   
 #### Création des widgets
 mode = tk.LabelFrame(racine,text ="Mode de jeu", fg="black", bg="grey80", highlightcolor="black") 
 Joueur = tk.LabelFrame(racine, text="Joueur", fg="black", bg="grey80", highlightcolor="black")
 JoueurA = tk.Label(Joueur, text="Joueur A", bg="cyan")
 JoueurB = tk.Label(Joueur, text="Joueur B", bg="maroon1")
 déco = tk.Label(racine, text="MASTERMIND", fg="black", font="Cambria", height="3")
-
+lbl = tk.Label(racine, text = "Suivez les règles", bg = "white", fg = "black")
+                   
 #### Création des boutons
 bouton_quitter = tk.Button(racine, text="Quitter", bg ="white", command= fermer_fenetre)
 bouton_2joueurs = tk.Button(mode, text="2 Joueurs", bg="grey91", command= mode_2joueurs)
@@ -433,6 +434,7 @@ bouton_decacher = tk.Button(racine, text ="Décacher", bg="white", command= deca
 bouton_valider = tk.Button(racine, text="Valider", bg= "white", command= valider)
 bouton_sauvegarder = tk.Button(racine, text="Sauvegarder", bg = "white", command = sauvegarde)
 bouton_recharger = tk.Button(racine, text="Recharger", bg = "white", command = recharger)
+                   
 
 #### Position des widgets 
 mode.grid (row=1, column=1, sticky='e')
@@ -440,6 +442,8 @@ Joueur.grid(row=0, column=1, sticky='ew')
 JoueurA.grid(row=0, column=0)
 JoueurB.grid(row=2, column=0)
 déco.grid(row=0, column=0, columnspan=3)
+lbl.grid(column = 0, row = 0, sticky = "NW")
+inputtxt.grid(column = 0, row = 0, sticky = tk.W                   
 
 #### Position des boutons
 bouton_quitter.grid(column=1, row=5, sticky='se')
@@ -450,6 +454,7 @@ bouton_decacher.grid(column=0, row=5, columnspan=5)
 bouton_valider.grid(column=1, row=1, sticky='s')
 bouton_sauvegarder.grid(column = 0, row = 1, sticky='sw')
 bouton_recharger.grid(column = 0, row = 4, sticky='sw')
+bouton_ok.grid(row = 1, column = 0, sticky = tk.NW)                   
 
 #### Création des cerlces de couleur (haut)
 cerclea = canvas.create_oval(170,5,185,20, fill='blue', outline="black")
