@@ -449,7 +449,7 @@ JoueurA.grid(row=0, column=0)
 JoueurB.grid(row=2, column=0)
 déco.grid(row=0, column=0, columnspan=3)
 lbl.grid(column = 0, row = 0, sticky = "NW")
-inputtxt.grid(column = 0, row = 0, sticky = tk.W                   
+inputtxt.grid(column = 0, row = 0, sticky = tk.W)                   
 
 #### Position des boutons
 bouton_quitter.grid(column=1, row=5, sticky='se')
