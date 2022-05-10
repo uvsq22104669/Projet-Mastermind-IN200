@@ -8,6 +8,7 @@
 
 #### Import des librairies
 import tkinter as tk
+from tkinter import messagebox
 import random as rd
 
 #### Boucle principale
@@ -25,7 +26,7 @@ guesses_liste = []
 GuessListe = []
 GuessInfo = []
 GuessInfo_liste = []
-color_list = ["blue","red", "orange", "yellow", "green2", "turquoise", "violet", "pink"]
+color_list = ["blue","red", "orange", "yellow", "green", "turquoise", "violet", "pink"]
 
 #### Fonctions
 def fermer_fenetre():
@@ -217,15 +218,15 @@ def mode_2joueurs ():
         x1_petit += 15
         canvas.create_oval(x0_petit,y0_petit, x1_petit, y1_petit, fill ="white",outline="black")
       
-      if BonPlacement == 4 : 
-        lbl.config(text = "Congrats, you've won!")
-        print("Congrats, you've won!")
+      if BonPlacement == 4 :
+        messagebox.showinfo("Fin de partie", "Congrats, you've won!!", parent = racine)
         canvas.create_oval(165,565,195,595, fill= circlecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= circlecode_2, outline="black")
         canvas.create_oval(265,565,295,595, fill= circlecode_3, outline="black")
         canvas.create_oval(315,565,345,595, fill= circlecode_4, outline="black")
         
       elif i == 9 and BonPlacement != 4 :
+        messagebox.showinfo("Fin de partie", "Good try, but you've lost...", parent = racine)
         lbl.config(text = "Good try, but you're out of guesses")
         print("Good try, but you've lost", circlecode_1, circlecode_2, circlecode_3, circlecode_4 )
         canvas.create_oval(165,565,195,595, fill= circlecode_1, outline="black")
@@ -243,8 +244,6 @@ def mode_1joueur ():
     cerclecode_2 = rd.choice(color_list)
     cerclecode_3 = rd.choice(color_list)
     cerclecode_4 = rd.choice(color_list)
-
-    print(cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4) # Pour vérifier si cela fonctionne 
       
     #Creation de listes qu'on va remplir au fur et à mesure pour stocker les informations
     #global guesses_liste 
@@ -352,16 +351,14 @@ def mode_1joueur ():
         canvas.create_oval(x0_petit,y0_petit, x1_petit, y1_petit, fill ="white",outline="black")
       
       if BonPlacement == 4 : 
-        lbl.config(text = "Congrats, you've won!")
-        print("Congrats, you've won!")
+        messagebox.showinfo("Fin de partie", "Congrats, you've won!!", parent = racine)
         canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
         canvas.create_oval(265,565,295,595, fill= cerclecode_3, outline="black")
         canvas.create_oval(315,565,345,595, fill= cerclecode_4, outline="black")
         
       elif i == 9 and BonPlacement != 4 : 
-        lbl.config(text = "Good try, but you've lost")
-        print("Good try, but you've lost, the correcte combination was", cerclecode_1, cerclecode_2, cerclecode_3, cerclecode_4 )
+        messagebox.showinfo("Fin de partie", "Good try, but you've lost...", parent = racine)
         canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
         canvas.create_oval(265,565,295,595, fill= cerclecode_3, outline="black")
