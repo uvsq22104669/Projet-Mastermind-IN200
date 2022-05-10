@@ -352,7 +352,7 @@ def mode_1joueur ():
         canvas.create_oval(x0_petit,y0_petit, x1_petit, y1_petit, fill ="white",outline="black")
       
       if BonPlacement == 4 : 
-        lbl.config(tetx = "Congrats, you've won!")
+        lbl.config(text = "Congrats, you've won!")
         print("Congrats, you've won!")
         canvas.create_oval(165,565,195,595, fill= cerclecode_1, outline="black")
         canvas.create_oval(215,565,245,595, fill= cerclecode_2, outline="black")
