@@ -26,7 +26,7 @@ guesses_liste = []
 GuessListe = []
 GuessInfo = []
 GuessInfo_liste = []
-color_list = ["blue","red", "orange", "yellow", "green", "turquoise", "violet", "pink"]
+color_list = ["blue","red", "orange", "yellow", "green2", "turquoise", "violet", "pink"]
 
 #### Fonctions
 def fermer_fenetre():
@@ -49,7 +49,7 @@ def mode_2joueurs ():
   #global GuessInfo
   #global GuessInfo_liste
   global inp
-  
+  global circlecode_1, circlecode_2, circlecode_3, circlecode_4
   #Cercle code 1
   lbl.config(text = "What is the colour of circle 1?")
   racine.wait_variable(inp)
@@ -380,10 +380,10 @@ def cacher_code():
 def decacher_code():
     """Fonction qui permet au joueur A de décacher le code"""
     canvas.itemconfigure(rectangle0, fill='grey')
-    canvas.create_oval(165,565,195,595, fill= circle1, outline="black")
-    canvas.create_oval(215,565,245,595, fill=circle2, outline="black")
-    canvas.create_oval(265,565,295,595, fill=circle3, outline="black")
-    canvas.create_oval(315,565,345,595, fill=circle4, outline="black")
+    canvas.create_oval(165,565,195,595, fill=circlecode_1, outline="black")
+    canvas.create_oval(215,565,245,595, fill=circlecode_2, outline="black")
+    canvas.create_oval(265,565,295,595, fill=circlecode_3, outline="black")
+    canvas.create_oval(315,565,345,595, fill=circlecode_4, outline="black")
     return
 
 def valider ():
